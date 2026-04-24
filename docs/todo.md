@@ -1,8 +1,8 @@
 # TODO — Timer Implementation
 
 ## Phase 1: Project Setup
-- [ ] Create `src/` folder structure
-- [ ] Update `timer.csproj` if needed (nullable, implicit usings already enabled)
+- [x] Create `src/` folder structure
+- [x] Update `timer.csproj` if needed (nullable, implicit usings already enabled)
 
 ## Phase 2: Core Logic
 - [ ] `ArgParser.cs` — parse and validate `-t` / `-u` args, print usage on error
