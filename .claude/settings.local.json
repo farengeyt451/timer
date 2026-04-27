@@ -1,7 +1,16 @@
 {
-  "permissions": {
-    "allow": [
-      "Bash(dotnet build *)"
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path' | { read -r f; echo \"$f\" | grep -q '\\.cs$' && dotnet format \"$(git rev-parse --show-toplevel)\" --include \"$f\" --verbosity quiet; } 2>/dev/null || true",
+            "statusMessage": "Formatting C#..."
+          }
+        ]
+      }
     ]
   }
 }
