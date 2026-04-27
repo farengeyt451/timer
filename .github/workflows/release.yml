@@ -36,7 +36,7 @@ jobs:
 
       - name: Rename binary (Windows)
         if: runner.os == 'Windows'
-        run: Rename-Item ./publish/tik.exe ./publish/${{ matrix.artifact }}
+        run: Rename-Item ./publish/tik.exe -NewName ${{ matrix.artifact }}
         shell: pwsh
 
       - name: Upload artifact
