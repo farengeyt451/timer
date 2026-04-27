@@ -4,13 +4,15 @@ internal static class ConsoleRenderer
 {
   private const int BarWidth = 20;
   private static int _row;
+  private static ConsoleColor _barColor;
 
-  internal static void Init()
+  internal static void Init(ConsoleColor barColor)
   {
+    _barColor = barColor;
     Console.CursorVisible = false;
     _row = Console.CursorTop;
-    Console.WriteLine();  // reserve progress bar line
-    Console.WriteLine();  // reserve finish animation line
+    Console.WriteLine();
+    Console.WriteLine();
   }
 
   internal static void Render(int remaining, int total)
@@ -23,7 +25,7 @@ internal static class ConsoleRenderer
     string time = FormatTime(remaining);
 
     Console.SetCursorPosition(0, _row);
-    Console.ForegroundColor = ConsoleColor.Cyan;
+    Console.ForegroundColor = _barColor;
     Console.Write($"[{bar}] ");
     Console.ForegroundColor = ConsoleColor.White;
     Console.Write($"{time} remaining   ");
@@ -33,7 +35,7 @@ internal static class ConsoleRenderer
   internal static void PlayFinish()
   {
     char[] frames = ['|', '/', '-', '\\'];
-    int iterations = 16; // 16 × 125 ms = 2 seconds
+    int iterations = 16;
 
     for (int i = 0; i < iterations; i++)
     {

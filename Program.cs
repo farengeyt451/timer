@@ -1,5 +1,5 @@
 using Tik;
 
-var (value, unit) = ArgParser.Parse(args);
+var (value, unit, color) = ArgParser.Parse(args);
 int totalSeconds = TimeConverter.ToSeconds(value, unit);
-TimerEngine.Run(totalSeconds);
+TimerEngine.Run(totalSeconds, color);

@@ -2,9 +2,9 @@ namespace Tik;
 
 internal static class TimerEngine
 {
-  public static void Run(int totalSeconds)
+  public static void Run(int totalSeconds, ConsoleColor barColor)
   {
-    ConsoleRenderer.Init();
+    ConsoleRenderer.Init(barColor);
 
     for (int remaining = totalSeconds; remaining >= 0; remaining--)
     {
