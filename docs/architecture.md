@@ -47,7 +47,7 @@ Single-project .NET 10 console application. No external NuGet dependencies — o
 ## File Structure
 
 ```
-timer/
+tik/
 ├── docs/                     ← documentation
 │   ├── architecture.md
 │   ├── todo.md
@@ -58,16 +58,16 @@ timer/
 │   ├── TimerEngine.cs
 │   └── ConsoleRenderer.cs
 ├── Program.cs
-├── timer.csproj
-└── timer.sln
+├── tik.csproj
+└── tik.sln
 ```
 
 ## CLI Usage
 
 ```
-timer -t 5 -u minutes
-timer -t 30 -u s
-timer -t 1 -u hour
+tik -t 5 -u minutes
+tik -t 30 -u s
+tik -t 1 -u hour
 ```
 
 ## Error Handling

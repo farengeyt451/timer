@@ -1,4 +1,4 @@
-namespace Timer;
+namespace Tik;
 
 internal enum TimeUnit { Seconds, Minutes, Hours }
 

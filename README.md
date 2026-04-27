@@ -1,11 +1,11 @@
-# timer
+# tik
 
-A self-contained .NET 10 console countdown timer. No external dependencies.
+A self-contained .NET 10 console countdown utility. No external dependencies.
 
 ## Usage
 
 ```
-timer -t <value> -u <unit>
+tik -t <value> -u <unit>
 ```
 
 | Flag | Description |
@@ -26,14 +26,14 @@ Units are case-insensitive.
 **Examples**
 
 ```
-timer -t 30 -u s
-timer -t 5 -u minutes
-timer -t 1 -u hour
+tik -t 30 -u s
+tik -t 5 -u minutes
+tik -t 1 -u hour
 ```
 
 ## Display
 
-While the timer is running, the console shows a live progress bar and remaining time updated every second:
+While tik is running, the console shows a live progress bar and remaining time updated every second:
 
 ```
 [████████░░░░░░░░░░░░] 00:03:42 remaining
@@ -46,15 +46,15 @@ When the countdown reaches zero, a short ASCII spinner animation plays followed 
 Download the latest binary from the [Releases](https://github.com/farengeyt451/timer/releases) page and install it to your PATH:
 
 ```bash
-curl -L https://github.com/farengeyt451/timer/releases/latest/download/timer-linux-x64 -o timer
-chmod +x timer
-sudo mv timer /usr/local/bin/
+curl -L https://github.com/farengeyt451/timer/releases/latest/download/tik-linux-x64 -o tik
+chmod +x tik
+sudo mv tik /usr/local/bin/
 ```
 
 After installation, run it directly:
 
 ```
-timer -t 5 -u minutes
+tik -t 5 -u minutes
 ```
 
 ## Requirements

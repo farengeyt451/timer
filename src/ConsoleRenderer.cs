@@ -1,4 +1,4 @@
-namespace Timer;
+namespace Tik;
 
 internal static class ConsoleRenderer
 {
