@@ -41,14 +41,23 @@ While tik is running, the console shows a live progress bar and remaining time u
 
 When the countdown reaches zero, a short ASCII spinner animation plays followed by a success message.
 
-## Installation (Linux)
+## Installation
 
-Download the latest binary from the [Releases](https://github.com/farengeyt451/tik/releases) page and install it to your PATH:
+Download the latest binary for your platform from the [Releases](https://github.com/farengeyt451/tik/releases) page.
+
+**Linux**
 
 ```bash
 curl -L https://github.com/farengeyt451/tik/releases/latest/download/tik-linux-x64 -o tik
 chmod +x tik
 sudo mv tik /usr/local/bin/
+```
+
+**Windows (PowerShell)**
+
+```powershell
+Invoke-WebRequest -Uri https://github.com/farengeyt451/tik/releases/latest/download/tik-win-x64.exe -OutFile tik.exe
+Move-Item tik.exe "$env:USERPROFILE\AppData\Local\Microsoft\WindowsApps\"
 ```
 
 After installation, run it directly:
