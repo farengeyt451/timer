@@ -11,21 +11,21 @@ tik -h | --help
 tik -v | --version
 ```
 
-| Flag | Description |
-|------|-------------|
-| `-t, --time` | Time value (positive integer) |
-| `-u, --unit` | Time unit (see accepted values below) |
-| `-c, --color` | Progress bar color (optional, default: `cyan`) |
-| `-h, --help` | Show help message |
-| `-v, --version` | Display version information |
+| Flag            | Description                                    |
+| --------------- | ---------------------------------------------- |
+| `-t, --time`    | Time value (positive integer)                  |
+| `-u, --unit`    | Time unit (see accepted values below)          |
+| `-c, --color`   | Progress bar color (optional, default: `cyan`) |
+| `-h, --help`    | Show help message                              |
+| `-v, --version` | Display version information                    |
 
 **Accepted units**
 
-| Unit | Accepted values |
-|------|----------------|
+| Unit    | Accepted values       |
+| ------- | --------------------- |
 | Seconds | `s`, `sec`, `seconds` |
 | Minutes | `m`, `min`, `minutes` |
-| Hours | `h`, `hr`, `hours` |
+| Hours   | `h`, `hr`, `hours`    |
 
 **Accepted colors**
 
@@ -66,7 +66,7 @@ sudo mv tik /usr/local/bin/
 **Windows (PowerShell)**
 
 ```powershell
-Invoke-WebRequest -Uri https://github.com/farengeyt451/tik/releases/latest/download/tik-win-x64.exe -OutFile tik.exe
+curl -L https://github.com/farengeyt451/tik/releases/latest/download/tik-win-x64.exe -o tik.exe
 Move-Item tik.exe "$env:USERPROFILE\AppData\Local\Microsoft\WindowsApps\"
 ```
 
