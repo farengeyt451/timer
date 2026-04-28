@@ -4,15 +4,18 @@ A self-contained .NET 10 console countdown utility. No external dependencies.
 
 ## Usage
 
-```
+```bash
 tik -t <value> -u <unit> [-c <color>]
+tik --time <value> --unit <unit> [--color <color>]
+tik -v | --version
 ```
 
 | Flag | Description |
 |------|-------------|
-| `-t` | Time value (positive integer) |
-| `-u` | Time unit (see accepted values below) |
-| `-c` | Progress bar color (optional, default: `cyan`) |
+| `-t, --time` | Time value (positive integer) |
+| `-u, --unit` | Time unit (see accepted values below) |
+| `-c, --color` | Progress bar color (optional, default: `cyan`) |
+| `-v, --version` | Display version information |
 
 **Accepted units**
 
@@ -30,9 +33,9 @@ All flags are case-insensitive.
 
 **Examples**
 
-```
+```bash
 tik -t 30 -u s
-tik -t 5 -u minutes -c green
+tik --time 5 --unit minutes --color green
 tik -t 1 -u hour -c magenta
 ```
 

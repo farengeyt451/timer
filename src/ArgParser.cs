@@ -4,11 +4,24 @@ internal static class ArgParser
 {
   private const string Usage =
       "Usage: tik -t <value> -u <unit> [-c <color>]\n" +
-      "       Units:  s, sec, seconds, m, min, minutes, h, hr, hours\n" +
-      "       Colors: red, green, yellow, blue, cyan, magenta, white";
+      "       tik -v | --version\n" +
+      "Flags:\n" +
+      "  -t, --time <value>    Time value (positive integer)\n" +
+      "  -u, --unit <unit>     Time unit\n" +
+      "  -c, --color <color>   Progress bar color (optional, default: cyan)\n" +
+      "  -v, --version         Display version information\n" +
+      "Units:  s, sec, seconds, m, min, minutes, h, hr, hours\n" +
+      "Colors: red, green, yellow, blue, cyan, magenta, white";
 
   public static (int value, TimeUnit unit, ConsoleColor color) Parse(string[] args)
   {
+    if (args.Length == 1 && (args[0] == "-v" || args[0] == "--version"))
+    {
+      var version = typeof(ArgParser).Assembly.GetName().Version;
+      Console.WriteLine($"tik version {version?.Major}.{version?.Minor}.{version?.Build}");
+      Environment.Exit(0);
+    }
+
     string? rawValue = null;
     string? rawUnit = null;
     string? rawColor = null;
@@ -18,15 +31,18 @@ internal static class ArgParser
       switch (args[i])
       {
         case "-t":
-          if (i + 1 >= args.Length) Fail("Missing value after -t.");
+        case "--time":
+          if (i + 1 >= args.Length) Fail("Missing value after -t/--time.");
           rawValue = args[++i];
           break;
         case "-u":
-          if (i + 1 >= args.Length) Fail("Missing value after -u.");
+        case "--unit":
+          if (i + 1 >= args.Length) Fail("Missing value after -u/--unit.");
           rawUnit = args[++i];
           break;
         case "-c":
-          if (i + 1 >= args.Length) Fail("Missing value after -c.");
+        case "--color":
+          if (i + 1 >= args.Length) Fail("Missing value after -c/--color.");
           rawColor = args[++i];
           break;
         default:
@@ -35,14 +51,14 @@ internal static class ArgParser
       }
     }
 
-    if (rawValue is null) Fail("Missing required flag: -t");
-    if (rawUnit is null) Fail("Missing required flag: -u");
+    if (rawValue is null) Fail("Missing required flag: -t/--time");
+    if (rawUnit is null) Fail("Missing required flag: -u/--unit");
 
     if (!int.TryParse(rawValue, out int value))
-      Fail($"Invalid value for -t: '{rawValue}' is not a whole number.");
+      Fail($"Invalid value for -t/--time: '{rawValue}' is not a whole number.");
 
     if (value <= 0)
-      Fail($"Value for -t must be greater than 0.");
+      Fail($"Value for -t/--time must be greater than 0.");
 
     if (!TryParseUnit(rawUnit!, out TimeUnit unit))
       Fail($"Unknown unit: '{rawUnit}'. Accepted: s, sec, seconds, m, min, minutes, h, hr, hours");
